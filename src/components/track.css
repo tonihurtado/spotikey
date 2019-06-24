@@ -1,0 +1,55 @@
+.card {
+  display: block !important;
+  border-radius: 10px !important;
+  margin: 15px 0px !important;
+  margin-bottom: 5px !important;
+}
+
+.spoty-button {
+  padding-bottom: 13px;
+  padding-left: -10px;
+}
+
+.madafaka {
+  display: flex !important;
+}
+
+.fimage {
+  border-radius: 0% !important;
+}
+
+.paddings {
+  padding-bottom: 20px !important;
+  margin-bottom: 10px !important;
+}
+
+.tag {
+  margin-top: 10px !important;
+  margin-left: 10px !important;
+    margin-right: 10px !important;
+  height: 2.5em;
+}
+
+.feature {
+  font-family: 'Nunito' !important;
+  font-size: 18px !important;
+  margin-bottom: 0px !important;
+  margin: 10px 0px 10px 10px !important;
+}
+
+.artist {
+  margin-left: 20px !important;
+  margin-top: 10px !important;
+}
+
+@media (max-width: 900px) {
+  .artist {
+    width: 6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .artist {
+    width: 3rem;
+  }
+}

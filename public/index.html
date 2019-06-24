@@ -1,38 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotikey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+      <link rel="stylesheet" href="./landing.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Nunito:600" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="../css/landing.css">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <section class="hero is-primary is-fullheight">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="../">
+                <span class="navbar-item spoty-button">
+                  <iframe src="https://open.spotify.com/follow/1/?uri=spotify:artist:4TF74vDSL1GnY94FtN2sqy&size=basic&theme=dark" width="200" height="25" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
+                </span>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+              </a>
+              <span class="navbar-burger burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+              <div class="navbar-end">
+                <a class="navbar-item" onClick="toogleCard()">
+                  About
+                </a>
+                <span class="navbar-item">
+                  <a class="button is-wzhite is-outlined is-small" href="https://github.com/tonihurtado/spotikey.git">
+                    <span class="icon">
+                      <i class="fa fa-github"></i>
+                    </span>
+                    <span>View Source</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div id="root" class="hero-body is-block">
+      </div>
+
+      <div id="card" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Spotikey</p>
+            <button class="delete" aria-label="close" onClick="toogleCard()"></button>
+          </header>
+          <section class="modal-card-body">
+            This app has been created as part of my practice to learn React and as a music producer,
+            it is a service that i always thought that will be really cool to have, and thanks to the
+            Spotify API has been really easy to implement.<br><br>
+
+            <p>Check out my music on Spotify: <a style="text-decoration:underline;">https://open.spotify.com/artist/4TF74vDSL1GnY94FtN2sqy?si=5VPFYXtVTkadDT9GSa1GSg</a></p>
+            </thead>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-dark" onClick="toogleCard()">Ok</button>
+          </footer>
+        </div>
+      </div>
+
+    </section>
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      function toogleCard() {
+        var element = document.getElementById("card");
+        element.classList.toggle("is-active");
+      }
+
+      $(window).on('load resize', function() {
+        $('iframe[src*="embed.spotify.com"]').each( function() {
+          $(this).css('width', $(this).parent().css('width'));
+          $(this).attr('src', $(this).attr('src'));
+          $(this).removeClass('loaded');
+
+          $(this).on('load', function(){
+            $(this).addClass('loaded');
+          });
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,33 @@
+body{
+  font-family: Nunito !important;
+}
+
+h1 {
+  font-size: 50px !important;
+  margin-bottom: 55px !important;
+}
+
+.spotify-embeds {
+  width: 100%;
+  padding: 50px;
+}
+
+.spotify-embed {
+  background: #282828;
+
+  &:not(:last-of-type) {
+    margin-bottom: 5px;
+  }
+
+  iframe {
+    display: block;
+    transition: opacity 0.125s;
+    .js & {
+      opacity: 0;
+
+      &.loaded {
+        opacity: 1;
+      }
+    }
+  }
+}
